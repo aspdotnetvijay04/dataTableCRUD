@@ -1,0 +1,147 @@
+﻿@model IPCAppp.Context.InterCommunicationTrace
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+    <div>
+       
+        <hr />
+        <div class="row">
+            <table class="stackTable">
+                <tr class="title">
+                    <td colspan="2">
+                        Inter Communication Trace Details
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.ComponentCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.ComponentCode)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.InternalRefId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.InternalRefId)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.VendorRefId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.VendorRefId)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.RequestForId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.RequestForId)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.IsOutBoundCall)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.IsOutBoundCall)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.IntegratiorVendorTypeId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.IntegratiorVendorTypeId)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.RequestURL)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.RequestURL)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.PortNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.PortNumber)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.RequestJson)
+                    </td>
+                    <td>
+                        <pre><code> @Html.DisplayFor(model => model.RequestJson)</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.ResponseJson)
+                    </td>
+                    <td>
+                        <pre><code>@Html.DisplayFor(model => model.ResponseJson)</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.RequestDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.RequestDate)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.ResponseDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.ResponseDate)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.StatusCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.StatusCode)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.CreatedDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.CreatedDate)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.ModifiedDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.ModifiedDate)
+                    </td>
+                </tr>
+                
+            </table>
+        </div>
+     
+    </div>
+<p>
+    @Html.ActionLink("Back to List", "InterProcess")
+</p>

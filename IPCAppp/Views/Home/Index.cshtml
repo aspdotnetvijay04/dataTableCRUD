@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+   
+<div class="col-md-12">
+    <table class="display" id="MyDataTable">
+        <thead>
+            <tr>
+                <th>
+                    Component Code
+                </th>
+                <th>
+                    Internal Ref Id
+                </th>
+                <th>
+                    Vendor Ref Id
+                </th>
+                <th>
+                    IsOutBoundCall
+                </th>
+                <th>
+                    Created date
+                </th>
+                <th>
+                    Modified Date
+                </th>
+                <th>
+                  Action
+                </th>
+            </tr>
+        </thead>
+
+        <tbody></tbody>
+
+    </table>
+
+</div>
+
+
+<script>
+
+    $(document).ready(function () {
+
+       // $("#MyDataTable").DataTable();
+
+        GetICTRecord();
+    })
+    var GetICTRecord = function () {
+
+        $.ajax({
+
+            type: "Get",
+            url: "/Home/GetICTRecord",
+            success: function (response) {
+
+                BindDataTable(response);
+
+            }
+        })
+
+    }
+
+
+    var BindDataTable = function (response) {
+        console.log(response);
+        $.noConflict();
+        $("#MyDataTable").DataTable({
+
+            "aaData": response,
+            "aoColumns": [
+
+                { "mData": "ComponentCode" },
+                { "mData": "InternalRefId" },
+                { "mData": "VendorRefId" },
+                { "mData": "IsOutBoundCall" },
+                {
+                    "mData": "CreatedDate", 'render': function (jsonDate) {
+                        var date = new Date(parseInt(jsonDate.substr(6)));
+                        var month = ("0" + (date.getMonth() + 1)).slice(-2);
+                        return ("0" + date.getDate()).slice(-2) + '-' + month + '-' + date.getFullYear();
+                    },
+                },
+                {
+                    "mData": "ModifiedDate",
+                    'render': function (jsonDate) {
+                        var date = new Date(parseInt(jsonDate.substr(6)));
+                        var month = ("0" + (date.getMonth() + 1)).slice(-2);
+                        return ("0" + date.getDate()).slice(-2) + '-' + month + '-' + date.getFullYear();
+                    },
+                },
+                {
+                    "data": "Id" ,
+                    "render" : function ( data ) {
+                        return '<a class="btn btn-primary" onclick="Menage(\'' + data + '\')">Menage</a>';
+                    }
+                }
+            ]
+
+        });
+    }
+    function Menage( id ) {
+          var url = '@Url.Action("Details", "InterProcess", new { id = "__id__" })';
+          window.location.href = url.replace('__id__', id);
+  }
+
+</script>

@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CP_GCSP_DevModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="InterCommunicationTrace">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ComponentCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="InternalRefId" Type="uniqueidentifier" />
+          <Property Name="VendorRefId" Type="varchar" MaxLength="50" />
+          <Property Name="RequestForId" Type="int" Nullable="false" />
+          <Property Name="IsOutBoundCall" Type="bit" Nullable="false" />
+          <Property Name="IntegratiorVendorTypeId" Type="int" Nullable="false" />
+          <Property Name="RequestURL" Type="varchar" MaxLength="500" />
+          <Property Name="PortNumber" Type="int" />
+          <Property Name="RequestJson" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ResponseJson" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RequestDate" Type="datetime" />
+          <Property Name="ResponseDate" Type="datetime" />
+          <Property Name="StatusCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="CP_GCSP_DevModelStoreContainer">
+          <EntitySet Name="InterCommunicationTrace" EntityType="Self.InterCommunicationTrace" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CP_GCSP_DevModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="InterCommunicationTrace">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ComponentCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="InternalRefId" Type="Guid" />
+          <Property Name="VendorRefId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RequestForId" Type="Int32" Nullable="false" />
+          <Property Name="IsOutBoundCall" Type="Boolean" Nullable="false" />
+          <Property Name="IntegratiorVendorTypeId" Type="Int32" Nullable="false" />
+          <Property Name="RequestURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PortNumber" Type="Int32" />
+          <Property Name="RequestJson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ResponseJson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RequestDate" Type="DateTime" Precision="3" />
+          <Property Name="ResponseDate" Type="DateTime" Precision="3" />
+          <Property Name="StatusCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="CP_GCSP_DevEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="InterCommunicationTraces" EntityType="Self.InterCommunicationTrace" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CP_GCSP_DevModelStoreContainer" CdmEntityContainer="CP_GCSP_DevEntities1">
+          <EntitySetMapping Name="InterCommunicationTraces">
+            <EntityTypeMapping TypeName="CP_GCSP_DevModel.InterCommunicationTrace">
+              <MappingFragment StoreEntitySet="InterCommunicationTrace">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ComponentCode" ColumnName="ComponentCode" />
+                <ScalarProperty Name="InternalRefId" ColumnName="InternalRefId" />
+                <ScalarProperty Name="VendorRefId" ColumnName="VendorRefId" />
+                <ScalarProperty Name="RequestForId" ColumnName="RequestForId" />
+                <ScalarProperty Name="IsOutBoundCall" ColumnName="IsOutBoundCall" />
+                <ScalarProperty Name="IntegratiorVendorTypeId" ColumnName="IntegratiorVendorTypeId" />
+                <ScalarProperty Name="RequestURL" ColumnName="RequestURL" />
+                <ScalarProperty Name="PortNumber" ColumnName="PortNumber" />
+                <ScalarProperty Name="RequestJson" ColumnName="RequestJson" />
+                <ScalarProperty Name="ResponseJson" ColumnName="ResponseJson" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="ResponseDate" ColumnName="ResponseDate" />
+                <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

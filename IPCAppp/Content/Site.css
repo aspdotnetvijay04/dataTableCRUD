@@ -1,0 +1,172 @@
+﻿body {
+    background-color: #fcfaf9;
+    color: #6F6F6F;
+    perspective: 1px;
+    transform-style: preserve-3d;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: 'Roboto';
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+div.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fcfaf9;
+    -webkit-box-shadow: 0px 2px 6px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 0px 2px 6px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 0px 2px 6px 0px rgba(50, 50, 50, 0.75);
+    z-index: 9999999;
+}
+
+    div.navbar > ul.navbar-container {
+        list-style-type: none;
+        margin: 0;
+        padding-left: 1em;
+        padding-right: 1em;
+        overflow: hidden;
+    }
+
+    div.navbar > ul > li.nav-item {
+        float: right;
+        background-color: #fcfaf9;
+    }
+
+a.nav-button {
+    font-family: roboto,Helvetica,Arial,sans-serif;
+    text-decoration: none;
+    line-height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #6c6f70;
+    transition: all 0.5s ease;
+}
+
+.brand-logo {
+    float: left;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+    .brand-logo img {
+        width: 15vmax;
+    }
+
+.brand-GCSPlogo {
+    font-family: roboto,Helvetica,Arial,sans-serif;
+    font-size: 1.6vmax;
+    font-weight: 700;
+    display: flex;
+}
+
+    .brand-GCSPlogo img {
+        width: 5vmax;
+        margin-top: 1px;
+        margin-bottom: 10px;
+    }
+
+    .brand-GCSPlogo span {
+        margin-top: 22px;
+    }
+
+.content {
+    min-height: 100px;
+}
+
+.firstrow {
+    display: inline-block;
+    text-align: left;
+    position: relative;
+    top: 20px;
+    left: 10%;
+    border: 2px solid #fff;
+    background-color: rgba(211, 211, 211, 0.33);
+    z-index: 2;
+    font-size: .9em;
+    font-family: roboto,Helvetica,Arial,sans-serif;
+    width: 80%;
+}
+
+    .firstrow div {
+        padding-left: 20px;
+    }
+
+.row {
+    position: relative;
+    width: 80%;
+    min-height: 150px;
+    margin-top: 30px;
+    margin-left: 10%;
+    min-width: 80%;
+}
+
+
+.footer-copyright {
+    font-weight: 300;
+    overflow: hidden;
+    height: 50px;
+    line-height: 50px;
+    background-color: rgba(211, 211, 211, 0.33);
+    font-size: .9em;
+    font-family: roboto,Helvetica,Arial,sans-serif;
+    text-align: center;
+    position: relative;
+    bottom: 0px;
+    z-index: -1;
+}
+
+.container {
+    width: 85%;
+    padding: 0 1.5rem;
+    margin: 0 auto;
+    max-width: 1280px;
+}
+
+footer p {
+    border-left: 3px solid #ffcdd2;
+    padding-left: 15px;
+    text-indent: 20px;
+    color: #ececec;
+}
+
+.stackTable {
+    font-size: .8em;
+    font-family: roboto,Helvetica,Arial,sans-serif;
+    width: 100%;
+    border: 0;
+    background-color: #FFFFFF;
+}
+
+    .stackTable tr td {
+        font-weight: 600;
+        border-bottom: solid 1px #DCDCDC;
+        padding: 10px;
+    }
+
+    .stackTable tr.title {
+        background-color: #888B91;
+        color: #fff;
+    }
+
+        .stackTable tr.title td a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+pre {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-left: 2px solid #00b4d1;
+    page-break-inside: avoid;
+    font-family: monospace;
+    line-height: 1.6;
+    overflow: auto;
+    padding: 1em 1em;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    width: 65vw;
+    overflow: auto;
+}

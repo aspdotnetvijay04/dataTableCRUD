@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CP_GCSP_DevModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="InterCommunicationTrace">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ComponentCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="InternalRefId" Type="uniqueidentifier" />
+    <Property Name="VendorRefId" Type="varchar" MaxLength="50" />
+    <Property Name="RequestForId" Type="int" Nullable="false" />
+    <Property Name="IsOutBoundCall" Type="bit" Nullable="false" />
+    <Property Name="IntegratiorVendorTypeId" Type="int" Nullable="false" />
+    <Property Name="RequestURL" Type="varchar" MaxLength="500" />
+    <Property Name="PortNumber" Type="int" />
+    <Property Name="RequestJson" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ResponseJson" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RequestDate" Type="datetime" />
+    <Property Name="ResponseDate" Type="datetime" />
+    <Property Name="StatusCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="CP_GCSP_DevModelStoreContainer">
+    <EntitySet Name="InterCommunicationTrace" EntityType="Self.InterCommunicationTrace" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

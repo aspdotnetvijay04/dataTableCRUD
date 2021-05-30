@@ -1,0 +1,113 @@
+﻿@model IPCAppp.Models.CustomerModel
+
+@{
+    ViewBag.Title = "Inter Communication Trace";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+
+
+<div class="card bg-primary text-white"> <h4>Inter Communication Trace List</h4></div>
+@using (Html.BeginForm("InterProcess", "InterProcess", FormMethod.Post))
+{
+    <div class="table-responsive">
+        <table class="table table-bordered table-responsive table-hover">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.InterCommunicationTraces.FirstOrDefault().ComponentCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InterCommunicationTraces.FirstOrDefault().InternalRefId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InterCommunicationTraces.FirstOrDefault().VendorRefId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InterCommunicationTraces.FirstOrDefault().RequestForId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InterCommunicationTraces.FirstOrDefault().IsOutBoundCall)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InterCommunicationTraces.FirstOrDefault().IntegratiorVendorTypeId)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.InterCommunicationTraces.FirstOrDefault().CreatedDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InterCommunicationTraces.FirstOrDefault().ModifiedDate)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (IPCAppp.Context.InterCommunicationTrace item in Model.InterCommunicationTraces)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ComponentCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InternalRefId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VendorRefId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RequestForId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsOutBoundCall)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IntegratiorVendorTypeId)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ModifiedDate)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <br />
+        <table cellpadding="2" cellspacing="3" border="1">
+            <tr>
+                @for (int i = 1; i <= Model.PageCount; i++)
+                {
+                    <td>
+                        @if (i != Model.CurrentPageIndex)
+                        {
+                            <a href="javascript:PagerClick(@i);">@i</a>
+                        }
+                        else
+                        {
+                            <span>@i</span>
+                        }
+                    </td>
+                }
+            </tr>
+        </table>
+        <input type="hidden" id="hfCurrentPageIndex" name="currentPageIndex" />
+
+        <script type="text/javascript">
+            function PagerClick(index) {
+                document.getElementById("hfCurrentPageIndex").value = index;
+                document.forms[0].submit();
+            }
+        </script>
+
+
+
+    </div>
+}
+
+
+
