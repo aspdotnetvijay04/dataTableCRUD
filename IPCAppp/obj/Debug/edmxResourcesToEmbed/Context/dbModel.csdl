@@ -23,5 +23,24 @@
   </EntityType>
   <EntityContainer Name="CP_GCSP_DevEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="InterCommunicationTraces" EntityType="Self.InterCommunicationTrace" />
+    <EntitySet Name="Logs" EntityType="CP_GCSP_DevModel.Log" />
   </EntityContainer>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="TypeId" Type="Int32" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ErrorCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ErrorArea" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="StackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ComponentCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsEmailSent" Type="Boolean" Nullable="false" />
+    <Property Name="FailedCount" Type="Int32" Nullable="false" />
+  </EntityType>
 </Schema>

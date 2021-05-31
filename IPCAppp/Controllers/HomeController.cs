@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -9,6 +10,7 @@ namespace IPCAppp.Controllers
 {
     public class HomeController : Controller
     {
+        CP_GCSP_DevEntities1 db = new CP_GCSP_DevEntities1();
         public ActionResult Index()
         {
             //GetICTRecord();
@@ -18,34 +20,48 @@ namespace IPCAppp.Controllers
         public JsonResult GetICTRecord()
         {
 
-            CP_GCSP_DevEntities1 db = new CP_GCSP_DevEntities1();
-            List<InterCommunicationTrace> List = db.InterCommunicationTraces.Take(1000).ToList();
-
-            //List<InterCommunicationTrace> List = db.InterCommunicationTraces.Select(x => new InterCommunicationTrace
-            //{
-            //    ComponentCode = x.ComponentCode,
-            //    InternalRefId = x.InternalRefId,
-            //    VendorRefId = x.VendorRefId,
-            //    IsOutBoundCall = x.IsOutBoundCall,
-            //    CreatedDate = x.CreatedDate,
-            //    ModifiedDate = x.ModifiedDate
-            //}).ToList();
+           
+            List<InterCommunicationTrace> List = db.InterCommunicationTraces.OrderByDescending(x=>x.CreatedDate).Take(500).ToList();         
 
             return Json(List, JsonRequestBehavior.AllowGet);
 
         }
-        public ActionResult About()
+        public ActionResult ErrorList()
         {
-            ViewBag.Message = "Your application description page.";
-
+           
             return View();
         }
-
-        public ActionResult Contact()
+        [HttpGet]
+        public JsonResult GetLogRecord()
         {
-            ViewBag.Message = "Your contact page.";
 
-            return View();
+           
+            List<Log> List = db.Logs.OrderByDescending(x => x.CreatedDate).Take(500).ToList();
+
+            return Json(List, JsonRequestBehavior.AllowGet);
+
+        }
+
+        public ActionResult ErrorDetails()
+        {
+          return View();
+        }
+        [HttpGet]
+        // GET: Employees/Details/5
+        public ActionResult ErrorDetails(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Log ict = db.Logs.Find(id);
+
+            if (ict == null)
+            {
+                return HttpNotFound();
+            }
+            return View(ict);
         }
     }
 }

@@ -20,12 +20,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Global Cutting Application Plateform", "InterProcess", "InterProcess", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Global Cutting Application Plateform", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                  
+                    <li>@Html.ActionLink("Error List", "ErrorList", "Home")</li>
                 </ul>
             </div>
         </div>

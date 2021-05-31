@@ -1,0 +1,93 @@
+﻿@model IPCAppp.Context.Log
+
+@{
+    ViewBag.Title = "Log Details";
+}
+
+
+<div>
+
+    <hr />
+    <div class="row">
+        <table class="stackTable">
+            <tr class="title">
+                <td colspan="2">
+                    Log Details
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.TypeId)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.TypeId)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Title)
+                </td>
+                <td>
+                    <pre><code> @Html.DisplayFor(model => model.Title)</code></pre>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.ErrorArea)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.ErrorArea)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.ErrorCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.ErrorCode)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.CreatedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.CreatedDate)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.StackTrace)
+                </td>
+                <td>
+                    <pre><code> @Html.DisplayFor(model => model.StackTrace)</code></pre>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.ComponentCode)
+                </td>
+                <td>
+                    <pre><code> @Html.DisplayFor(model => model.ComponentCode)</code></pre>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Description)
+                </td>
+                <td>
+                    <pre><code> @Html.DisplayFor(model => model.Description)</code></pre>
+                </td>
+            </tr>
+
+
+
+
+        </table>
+    </div>
+
+</div>
+<p>
+    @Html.ActionLink("Back to List", "ErrorList")
+</p>

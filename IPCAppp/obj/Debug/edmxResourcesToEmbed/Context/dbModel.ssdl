@@ -21,7 +21,26 @@
     <Property Name="CreatedDate" Type="datetime" Nullable="false" />
     <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
   </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="TypeId" Type="int" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ErrorCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ErrorArea" Type="nvarchar" MaxLength="200" />
+    <Property Name="StackTrace" Type="nvarchar(max)" />
+    <Property Name="ComponentCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsEmailSent" Type="bit" Nullable="false" />
+    <Property Name="FailedCount" Type="int" Nullable="false" />
+  </EntityType>
   <EntityContainer Name="CP_GCSP_DevModelStoreContainer">
     <EntitySet Name="InterCommunicationTrace" EntityType="Self.InterCommunicationTrace" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

@@ -6,6 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="75de2bd70b7144f0a8a75b2c95668107" Name="Diagram1">
         <EntityTypeShape EntityType="CP_GCSP_DevModel.InterCommunicationTrace" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CP_GCSP_DevModel.Log" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

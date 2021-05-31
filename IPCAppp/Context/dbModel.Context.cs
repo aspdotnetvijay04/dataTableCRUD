@@ -26,5 +26,6 @@ namespace IPCAppp.Context
         }
     
         public virtual DbSet<InterCommunicationTrace> InterCommunicationTraces { get; set; }
+        public virtual DbSet<Log> Logs { get; set; }
     }
 }

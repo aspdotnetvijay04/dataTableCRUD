@@ -1,31 +1,32 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-    <div class="card bg-primary text-white"> <h4>Inter Communication Trace List</h4></div>
+    <div class="card bg-primary text-white"> <h4>Log List</h4></div>
 <div class="col-md-12">
     <table class="display" id="MyDataTable">
         <thead>
             <tr>
                 <th>
+                    Type Id
+                </th>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Error Area
+                </th>
+                <th>
+                    Error Code
+                </th>
+                <th>
                     Component Code
-                </th>
-                <th>
-                    Internal Ref Id
-                </th>
-                <th>
-                    Vendor Ref Id
-                </th>
-                <th>
-                    IsOutBoundCall
                 </th>
                 <th>
                     Created date
                 </th>
+
                 <th>
-                    Modified Date
-                </th>
-                <th>
-                  Action
+                    Action
                 </th>
             </tr>
         </thead>
@@ -43,14 +44,14 @@
 
        // $("#MyDataTable").DataTable();
 
-        GetICTRecord();
+        GetLogRecord();
     })
-    var GetICTRecord = function () {
+    var GetLogRecord = function () {
 
         $.ajax({
 
             type: "Get",
-            url: "/Home/GetICTRecord",
+            url: "/Home/GetLogRecord",
             success: function (response) {
 
                 BindDataTable(response);
@@ -69,10 +70,11 @@
             "aaData": response,
             "aoColumns": [
 
+                { "mData": "TypeId" },
+                { "mData": "Title" },
+                { "mData": "ErrorArea" },
+                { "mData": "ErrorCode" },
                 { "mData": "ComponentCode" },
-                { "mData": "InternalRefId" },
-                { "mData": "VendorRefId" },
-                { "mData": "IsOutBoundCall" },
                 {
                     "mData": "CreatedDate", 'render': function (jsonDate) {
                         var date = new Date(parseInt(jsonDate.substr(6)));
@@ -80,14 +82,7 @@
                         return ("0" + date.getDate()).slice(-2) + '-' + month + '-' + date.getFullYear();
                     },
                 },
-                {
-                    "mData": "ModifiedDate",
-                    'render': function (jsonDate) {
-                        var date = new Date(parseInt(jsonDate.substr(6)));
-                        var month = ("0" + (date.getMonth() + 1)).slice(-2);
-                        return ("0" + date.getDate()).slice(-2) + '-' + month + '-' + date.getFullYear();
-                    },
-                },
+              
                 {
                     "data": "Id" ,
                     "render" : function ( data ) {
@@ -99,7 +94,7 @@
         });
     }
     function Menage( id ) {
-          var url = '@Url.Action("Details", "InterProcess", new { id = "__id__" })';
+          var url = '@Url.Action("ErrorDetails", "Home", new { id = "__id__" })';
           window.location.href = url.replace('__id__', id);
   }
 

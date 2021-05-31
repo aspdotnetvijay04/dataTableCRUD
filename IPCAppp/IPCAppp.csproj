@@ -146,6 +146,9 @@
     <Compile Include="Context\InterCommunicationTrace.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Context\Log.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InterProcessController.cs" />
     <Compile Include="Global.asax.cs">
@@ -255,8 +258,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\ErrorList.cshtml" />
+    <Content Include="Views\Home\ErrorDetails.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\InterProcess\InterProcess.cshtml" />
     <Content Include="Views\InterProcess\Details.cshtml" />
